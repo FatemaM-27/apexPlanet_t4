@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="todo.css">
+    <title>Dynamic To-Do list</title>
+
+</head>
+<body>
+    <div class="container">
+        <h1>To-Do List</h1>
+        <p class="user-info">User ID: <span id="user-id">Loading...</span></p>
+
+        <div class="progress-container">
+            <div class="progress-text">Progress: <span id="progress-count">0 of 0 tasks completed</span></div>
+            <div class="progress-bar">
+                <div id="progress-fill" class="progress-fill" style="width: 0%;"></div>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <input type="text" id="task-input" placeholder="Add a new task..." autofocus>
+            <button id="add-task-btn">Add Task</button>
+        </div>
+
+        <ul id="task-list" class="task-list">
+            <li class="loading-text">Loading tasks...</li>
+        </ul>
+    </div>
+    <script src="todo.js"></script>
+</body>
+</html>

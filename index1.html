@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProductHub - Modern Product Filtering</title>
+    <link rel="stylesheet" href="product.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
+                <h1 class="logo">ProductHub</h1>
+                <span class="product-count" id="product-count">15 Products</span>
+            </div>
+            <div class="header-right">
+                <button class="cart-btn" id="cart-btn">
+                    <i class="fas fa-shopping-bag"></i>
+                    Cart
+                    <span class="cart-badge" id="cart-badge">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Filter Sidebar -->
+        <aside class="filter-sidebar" id="filter-sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-title">
+                    <i class="fas fa-filter"></i>
+                    <h2>Filters</h2>
+                </div>
+                <button class="close-sidebar" id="close-sidebar">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="sidebar-content">
+                <!-- Categories -->
+                <div class="filter-section">
+                    <div class="filter-header">
+                        <i class="fas fa-tags"></i>
+                        <h3>Categories</h3>
+                    </div>
+                    <div class="category-buttons" id="category-buttons">
+                        <button class="category-btn active" data-category="All">All</button>
+                        <button class="category-btn" data-category="Electronics">Electronics</button>
+                        <button class="category-btn" data-category="Clothing">Clothing</button>
+                        <button class="category-btn" data-category="Home">Home</button>
+                        <button class="category-btn" data-category="Sports">Sports</button>
+                    </div>
+                </div>
+
+                <!-- Price Range -->
+                <div class="filter-section">
+                    <div class="filter-header">
+                        <i class="fas fa-dollar-sign"></i>
+                        <h3>Price Range</h3>
+                    </div>
+                    <div class="price-slider-container">
+                        <input type="range" id="price-slider" min="0" max="1000" value="1000" class="price-slider">
+                        <div class="price-display">
+                            <span class="price-badge">$0</span>
+                            <span>to</span>
+                            <span class="price-badge" id="max-price">$1000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reset Button -->
+                <button class="reset-btn" id="reset-filters">Reset All Filters</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Search and Controls -->
+            <div class="controls-panel">
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="search-input" placeholder="Search products..." class="search-input">
+                </div>
+                
+                <div class="controls-right">
+                    <button class="filter-toggle" id="filter-toggle">
+                        <i class="fas fa-sliders-h"></i>
+                        Filters
+                    </button>
+                    
+                    <select id="sort-select" class="sort-select">
+                        <option value="name">Name A-Z</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="rating">Highest Rated</option>
+                        <option value="reviews">Most Reviews</option>
+                    </select>
+                    
+                    <div class="view-toggle">
+                        <button class="view-btn active" id="grid-view">
+                            <i class="fas fa-th"></i>
+                        </button>
+                        <button class="view-btn" id="list-view">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-container">
+                <div class="products-grid" id="products-grid">
+                    <!-- Products will be dynamically inserted here -->
+                </div>
+                
+                <!-- No Results -->
+                <div class="no-results" id="no-results" style="display: none;">
+                    <div class="no-results-icon">🔍</div>
+                    <h3>No products found</h3>
+                    <p>Try adjusting your filters or search terms</p>
+                    <button class="reset-btn" onclick="resetAllFilters()">Reset Filters</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Filter Overlay for mobile -->
+    <div class="filter-overlay" id="filter-overlay"></div>
+
+    <script src="product.js"></script>
+</body>
+</html>
